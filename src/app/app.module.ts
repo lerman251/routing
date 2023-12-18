@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BobComponent } from './about/bob/bob.component';
 import { SusanComponent } from './about/susan/susan.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, children: [
@@ -15,8 +16,11 @@ const appRoutes: Routes = [
           { path: 'about/bob', component: BobComponent},
           { path: 'about/susan', component: SusanComponent},
         ]},
-      { path: 'contact', component: ContactComponent}
+      { path: 'contact', component: ContactComponent},
+      
     ]},
+    { path: 'not-found', component: PageNotFoundComponent},
+      { path: '**', redirectTo: '/not-found'}
     
   
 ];
@@ -28,7 +32,8 @@ const appRoutes: Routes = [
     AboutComponent,
     ContactComponent,
     BobComponent,
-    SusanComponent
+    SusanComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
